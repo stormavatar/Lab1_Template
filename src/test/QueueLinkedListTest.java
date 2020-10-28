@@ -1,4 +1,8 @@
+package test;
+
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import pt.pa.adts.EmptyQueueException;
 import pt.pa.adts.QueueLinkedList;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -14,7 +18,7 @@ class QueueLinkedListTest {
         queue = new QueueLinkedList<>();
     }
 
-    @org.junit.jupiter.api.Test
+    @Test
     void enqueue() {
 
         queue.enqueue(1);
@@ -22,7 +26,7 @@ class QueueLinkedListTest {
 
     }
 
-    @org.junit.jupiter.api.Test
+    @Test
     void dequeue() {
 
 
@@ -32,7 +36,14 @@ class QueueLinkedListTest {
         assertEquals(1, queue.dequeue());
     }
 
-    @org.junit.jupiter.api.Test
+    @Test
+    void dequeueException(){
+        assertThrows(EmptyQueueException.class, () -> {
+            queue.dequeue();
+        });
+    }
+
+    @Test
     void front() {
 
 
@@ -45,7 +56,15 @@ class QueueLinkedListTest {
         assertEquals(2, queue.front());
     }
 
-    @org.junit.jupiter.api.Test
+    @Test
+    void frontException() {
+
+        assertThrows(EmptyQueueException.class, () -> {
+            queue.front();
+        });
+    }
+
+    @Test
     void size() {
 
         assertEquals(0, queue.size());
@@ -63,7 +82,7 @@ class QueueLinkedListTest {
         assertEquals(2, queue.size());
     }
 
-    @org.junit.jupiter.api.Test
+    @Test
     void isEmpty() {
 
 
@@ -74,7 +93,7 @@ class QueueLinkedListTest {
         assertEquals(true, queue.isEmpty());
     }
 
-    @org.junit.jupiter.api.Test
+    @Test
     void clear() {
 
 

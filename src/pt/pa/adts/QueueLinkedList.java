@@ -58,7 +58,7 @@ public class QueueLinkedList<T> implements Queue<T> {
     @Override
     public T front() throws EmptyQueueException {
 
-        if(this.header == null) {
+        if(isEmpty()) {
 
            throw new EmptyQueueException();
 
@@ -73,13 +73,6 @@ public class QueueLinkedList<T> implements Queue<T> {
     public int size() {
 
         return this.size;
-        /*int counter = 0;
-        Node current = trailer.next;
-        while(current != null){
-            counter++;
-            current= current.next;
-        }
-        return counter;*/
     }
 
     @Override
